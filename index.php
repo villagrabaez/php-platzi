@@ -1,4 +1,35 @@
+<?php 
+ $name = "Bernardino Villagra";
+ $profesion = "TIC profesional";
 
+ $jobs = [
+   [
+     "title" => "PHP Developer",
+     "description" => "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, et.",
+     "achiements" => [
+       "Diseñe y escribi el codigo del frontend",
+       "Diseñe la base de datos",
+       "Programe el backend",
+       "Subi el proyecto a un repositorio de github",
+       "Hice deploy del proyecto a un servidor",
+     ],
+   ],
+   [
+     "title" => "Python Developer",
+     "description" => "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam cum voluptatem veritatis sequi!",
+     "achiements" => [
+      "Utilize el lenguaje para adentrarme un poco al mundo de las Ciencias de Datos"
+      ],
+   ],
+   [
+     "title" => "Devops",
+     "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+     "achiements" => [
+      "Tomé el desafio de montar todo el servidor"
+      ],
+   ],
+ ];
+?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
@@ -20,7 +51,7 @@
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Bernardino Villagra</a>
+      <a class="navbar-brand" href="#"><?php echo $name;?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,8 +75,8 @@
           <img class="img-fluid" src="./img/logo.svg" alt="logo">
         </div>
         <div class="col-sm-9 resume-text pl-sm-4">
-          <h1>Bernardino Villagra</h1>
-          <h2>PHP Developer</h2>
+          <h1><?php echo $name;?></h1>
+          <h2><?php echo $profesion;?></h2>
           <div>
             <ul>
               <li>Mail: bernardinovillagra@hotmail.com</li>
@@ -70,21 +101,23 @@
         <div class="col-md-9">
           <div>
             <h2 class="title">Work Experience</h2>
+            <?php foreach($jobs as $job){ ; ?>
             <ul>
               <li>
-                <h3>PHP Developer</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto cupiditate animi accusamus at qui inventore aliquam, a repellat facere eius magni odio illum error officia commodi veritatis deleniti itaque fugiat!</p>
-                <h4>Achiements:</h4>
+                <h3><?php echo $job['title']; ?></h3>
+                <p><?php echo $job['description'];?></p>
+                <h5>Achiements:</h5>
                 <ul>
-                  <li>Lorem ipsum dolor sit amet.</li>
-                  <li>Lorem ipsum dolor sit amet.</li>
-                  <li>Lorem ipsum dolor sit amet.</li>
+                  <?php foreach($job['achiements'] as $achiement) { ;?>
+                    <li><?php echo $achiement;?></li>
+                  <?php } ;?>
                 </ul>
               </li>
             </ul>
+            <?php }; ?>
           </div>
           <div>
-            <h3 class="title">Proyects</h3>
+            <h3 class="title">Projects</h3>
             <div class="project mb-4">
               <h5>Porject X</h5>
               <div class="row">
