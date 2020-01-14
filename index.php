@@ -1,34 +1,8 @@
 <?php 
- $name = "Bernardino Villagra";
- $profesion = "TIC profesional";
+  $name = "Bernardino Villagra";
+  $profesion = "TIC profesional";
 
- $jobs = [
-   [
-     "title" => "PHP Developer",
-     "description" => "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, et.",
-     "achiements" => [
-       "Diseñe y escribi el codigo del frontend",
-       "Diseñe la base de datos",
-       "Programe el backend",
-       "Subi el proyecto a un repositorio de github",
-       "Hice deploy del proyecto a un servidor",
-     ],
-   ],
-   [
-     "title" => "Python Developer",
-     "description" => "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam cum voluptatem veritatis sequi!",
-     "achiements" => [
-      "Utilize el lenguaje para adentrarme un poco al mundo de las Ciencias de Datos"
-      ],
-   ],
-   [
-     "title" => "Devops",
-     "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-     "achiements" => [
-      "Tomé el desafio de montar todo el servidor"
-      ],
-   ],
- ];
+  include_once 'jobs.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
