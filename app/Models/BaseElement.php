@@ -1,6 +1,12 @@
 <?php
 
-class BaseElement
+namespace App\Models;
+
+// require_once 'Printable.php';
+
+use App\Models\Printable;
+
+class BaseElement implements Printable
 {
   protected $title;
   protected $description;
@@ -43,7 +49,8 @@ class BaseElement
     $this->achiements = $achiements;
   }
 
-  public function getDurationAsString(){
+  public function getDurationAsString()
+  {
     $years = floor($this->months / 12);
     $extraMonths = $this->months % 12;
 

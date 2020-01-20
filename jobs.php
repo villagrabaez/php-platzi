@@ -1,7 +1,8 @@
 <?php
 
-require_once 'app/Models/Job.php';
-require_once 'app/Models/Project.php';
+require_once 'vendor/autoload.php';
+
+use App\Models\Job;
 
 $job1 = new Job;
 $job1->setTitle("PHP Developer");
