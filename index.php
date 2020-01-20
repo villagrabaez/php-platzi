@@ -78,11 +78,12 @@
             <?php foreach($jobs as $job){ ; ?>
             <ul>
               <li>
-                <h3><?php echo $job['title']; ?></h3>
-                <p><?php echo $job['description'];?></p>
+                <h3><?php echo $job->getTitle(); ?></h3>
+                <p><?php echo $job->getDescription();?></p>
+                <p><?php echo $job->getDurationAsString();?></p>
                 <h5>Achiements:</h5>
                 <ul>
-                  <?php foreach($job['achiements'] as $achiement) { ;?>
+                  <?php foreach($job->getAchiements() as $achiement) { ;?>
                     <li><?php echo $achiement;?></li>
                   <?php } ;?>
                 </ul>
