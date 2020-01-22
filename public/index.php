@@ -46,11 +46,20 @@ $request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
 
 $routerContainer = new RouterContainer();
 $map = $routerContainer->getMap();
+
 $map->get('index', '/php-platzi/', [
   'controller' => 'App\Controllers\IndexController',
   'action' => 'indexAction',
 ]);
-$map->get('addJobs', '/php-platzi/jobs/add', '../addJob.php');
+$map->get('addJobs', '/php-platzi/jobs/add', [
+  'controller' => 'App\Controllers\JobsController',
+  'action' => 'getAddJobAction',
+]);
+$map->post('saveJobs', '/php-platzi/jobs/add', [
+  'controller' => 'App\Controllers\JobsController',
+  'action' => 'getAddJobAction',
+]);
+
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
 
@@ -61,7 +70,7 @@ if (! $route) {
   $actionName = $handlerData['action'];
   $controllerName = $handlerData['controller'];
   $controller = new $controllerName;
-  $controller->$actionName();
+  $controller->$actionName($request);
   // require $route->handler;
   // var_dump($route->handler);
 }

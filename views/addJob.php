@@ -1,22 +1,3 @@
-<?php
-
-use App\Models\Job;
-
-if ( ! empty($_POST["title"]) ) {
-  $job = new Job();
-  $job->title = $_POST["title"];
-  $job->description = $_POST["description"];
-  $job->months = $_POST["months"];
-  if ( ! empty($_POST["visible"]) && $_POST["visible"] == 'on' ) {
-    $job->visible = 1;
-  } else {
-    $job->visible = 0;
-  }
-  $job->save();
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +8,7 @@ if ( ! empty($_POST["title"]) ) {
 </head>
 <body>
   <h1>Add Job</h1>
-  <form action="addJob.php" method="POST">
+  <form action="add" method="POST">
     <label for="title">Title</label>
     <input type="text" name="title" id="title"><br>
     <label for="description">Description</label>

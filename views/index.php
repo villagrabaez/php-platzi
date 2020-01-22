@@ -1,10 +1,3 @@
-<?php 
-  $name = "Bernardino Villagra";
-  $profesion = "TIC profesional";
-
-  use App\Models\Job;
-  include_once 'jobs.php';
-?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
