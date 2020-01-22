@@ -10,6 +10,7 @@ require_once '../vendor/autoload.php';
 // Eloquent
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Aura\Router\RouterContainer;
 use App\Models\Job;
 
 $capsule = new Capsule;
@@ -31,10 +32,29 @@ $capsule->setAsGlobal();
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
 
-$route = $_GET['route'] ?? '/';
+// REQUEST
 
-if ( $route == '/' ) {
-  require '../index.php';
-} elseif ( $route == 'addJob' ) {
-  require '../addJob.php';
+$request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
+  $_SERVER,
+  $_GET,
+  $_POST,
+  $_COOKIE,
+  $_FILES
+);
+
+// ROUTE
+
+$routerContainer = new RouterContainer();
+$map = $routerContainer->getMap();
+$map->get('index', '/php-platzi/', '../index.php');
+$map->get('addJobs', '/php-platzi/jobs/add', '../addJob.php');
+$matcher = $routerContainer->getMatcher();
+$route = $matcher->match($request);
+
+if (! $route) {
+  echo "No route";
+} else {
+  require $route->handler;
 }
+
+// var_dump($route->handler);
