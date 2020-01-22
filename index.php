@@ -2,6 +2,30 @@
   $name = "Bernardino Villagra";
   $profesion = "TIC profesional";
 
+  require_once 'vendor/autoload.php';
+
+  use Illuminate\Database\Capsule\Manager as Capsule;
+  use App\Models\Job;
+
+  $capsule = new Capsule;
+
+  $capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'php-platzi',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+  ]);
+
+  // Make this Capsule instance available globally via static methods... (optional)
+  $capsule->setAsGlobal();
+
+  // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+  $capsule->bootEloquent();
+
   include_once 'jobs.php';
 ?>
 <!DOCTYPE html>
@@ -78,14 +102,14 @@
             <?php foreach($jobs as $job){ ; ?>
             <ul>
               <li>
-                <h3><?php echo $job->getTitle(); ?></h3>
-                <p><?php echo $job->getDescription();?></p>
+                <h3><?php echo $job->title; ?></h3>
+                <p><?php echo $job->description;?></p>
                 <p><?php echo $job->getDurationAsString();?></p>
                 <h5>Achiements:</h5>
                 <ul>
-                  <?php foreach($job->getAchiements() as $achiement) { ;?>
+                  <?php /* foreach($job->getAchiements() as $achiement) { ;?>
                     <li><?php echo $achiement;?></li>
-                  <?php } ;?>
+                  <?php } */ ;?>
                 </ul>
               </li>
             </ul>
