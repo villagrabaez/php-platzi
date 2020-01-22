@@ -2,30 +2,7 @@
   $name = "Bernardino Villagra";
   $profesion = "TIC profesional";
 
-  require_once 'vendor/autoload.php';
-
-  use Illuminate\Database\Capsule\Manager as Capsule;
   use App\Models\Job;
-
-  $capsule = new Capsule;
-
-  $capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'php-platzi',
-    'username'  => 'root',
-    'password'  => '',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-  ]);
-
-  // Make this Capsule instance available globally via static methods... (optional)
-  $capsule->setAsGlobal();
-
-  // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
-  $capsule->bootEloquent();
-
   include_once 'jobs.php';
 ?>
 <!DOCTYPE html>
@@ -42,7 +19,7 @@
   <!-- Font Roboto -->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <!-- css file -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!-- Custom styles for this template -->
 </head>
 <body class="d-flex flex-column h-100">
@@ -70,7 +47,7 @@
     <div class="container resume">
       <div class="row">
         <div class="col-sm-3 resume-image">
-          <img class="img-fluid" src="./img/logo.svg" alt="logo">
+          <img class="img-fluid" src="../img/logo.svg" alt="logo">
         </div>
         <div class="col-sm-9 resume-text pl-sm-4">
           <h1><?php echo $name;?></h1>
@@ -121,7 +98,7 @@
               <h5>Porject X</h5>
               <div class="row">
                 <div class="col-3">
-                  <img src="./img/source-code--v3.png" class="img-fluid" alt="">
+                  <img src="../img/source-code--v3.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-9">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non vero quod similique, dolorem harum fugit accusamus! Nostrum laudantium a, perferendis optio quibusdam dolorum magni. Quasi nam nesciunt illum? Ipsum animi dolor est cupiditate, quae possimus maiores nihil error eum ratione, ducimus inventore asperiores distinctio?</p>
@@ -137,7 +114,7 @@
               <h5>Porject X</h5>
               <div class="row">
                 <div class="col-3">
-                  <img src="./img/source-code--v3.png" class="img-fluid" alt="">
+                  <img src="../img/source-code--v3.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-9">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non vero quod similique, dolorem harum fugit accusamus! Nostrum laudantium a, perferendis optio quibusdam dolorum magni. Quasi nam nesciunt illum? Ipsum animi dolor est cupiditate, quae possimus maiores nihil error eum ratione, ducimus inventore asperiores distinctio?</p>
@@ -153,7 +130,7 @@
               <h5>Porject X</h5>
               <div class="row">
                 <div class="col-3">
-                  <img src="./img/source-code--v3.png" class="img-fluid" alt="">
+                  <img src="../img/source-code--v3.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-9">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non vero quod similique, dolorem harum fugit accusamus! Nostrum laudantium a, perferendis optio quibusdam dolorum magni. Quasi nam nesciunt illum? Ipsum animi dolor est cupiditate, quae possimus maiores nihil error eum ratione, ducimus inventore asperiores distinctio?</p>
