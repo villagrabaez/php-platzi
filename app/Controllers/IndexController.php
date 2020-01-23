@@ -2,8 +2,9 @@
 
 namespace App\Controllers;
 use App\Models\Job;
+use App\Controllers\BaseController;
 
-class IndexController
+class IndexController extends BaseController
 {
   public function indexAction()
   {
@@ -12,6 +13,8 @@ class IndexController
     $name = "Bernardino Villagra";
     $profesion = "TIC profesional";
 
-    include '../views/index.php';
+    echo $this->renderHTML('index.twig');
+
+    // include '../views/index.php';
   }
 }
